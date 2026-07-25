@@ -1129,3 +1129,23 @@ footer {
   }
 }
 
+/* v24: 길찾기 버튼은 각 서비스의 브랜드 색상을 유지 */
+.map-button.naver {
+  color: #fff;
+  background: #03c75a;
+}
+
+.map-button.kakao {
+  color: #3c1e1e;
+  background: #fee500;
+}
+
+.map-button.naver:hover,
+.map-button.naver:active {
+  background: #02b350;
+}
+
+.map-button.kakao:hover,
+.map-button.kakao:active {
+  background: #f3d900;
+}
