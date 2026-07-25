@@ -1129,7 +1129,98 @@ footer {
   }
 }
 
-/* v24: 길찾기 버튼은 각 서비스의 브랜드 색상을 유지 */
+/* v25: 약도 영역을 핑크 톤 앤 매너에 맞게 정리 */
+.map-card {
+  position: relative;
+  margin-top: 24px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(191, 125, 152, .18);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(215, 154, 174, .20), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(231, 198, 211, .55), transparent 30%),
+    linear-gradient(135deg, #fff8fb, #f7e7ef);
+  box-shadow: 0 14px 30px rgba(164, 116, 137, .10);
+}
+
+.map-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.32), transparent 45%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 14px,
+      rgba(191,125,152,.035) 14px 15px
+    );
+}
+
+.map-card img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 125, 152, .14);
+  background: rgba(255, 255, 255, .45);
+}
+
+/* v25: 가족 표기를 3열 구조로 정렬 (부모님 / 관계 / 이름) */
+.family-lines {
+  display: inline-grid;
+  grid-template-columns: auto 2.8em auto;
+  column-gap: 10px;
+  row-gap: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.family-parents {
+  min-width: 11.8em;
+  text-align: right;
+  color: #6d5a62;
+  white-space: nowrap;
+}
+
+.family-relation {
+  display: inline-grid;
+  min-width: 2.8em;
+  place-items: center;
+  color: #6d5a62;
+  white-space: nowrap;
+}
+
+.family-name {
+  display: inline-block;
+  min-width: 4.2em;
+  margin-left: 0;
+  text-align: left;
+  color: #4f3d45;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .family-lines {
+    grid-template-columns: auto 2.5em auto;
+    column-gap: 8px;
+  }
+
+  .family-parents {
+    min-width: 10.8em;
+  }
+
+  .family-name {
+    min-width: 3.8em;
+  }
+}
+
+/* v26: 길찾기 버튼은 브랜드 고유 색상 유지 */
 .map-button.naver {
   color: #fff;
   background: #03c75a;

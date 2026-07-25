@@ -272,6 +272,27 @@
       </figure>`;
   }
 
+  function splitFamilyLabel(value = '') {
+    const trimmed = String(value).trim();
+    if (!trimmed) return { parents: '', relation: '' };
+    const lastSpaceIndex = trimmed.lastIndexOf(' ');
+    if (lastSpaceIndex === -1) {
+      return { parents: trimmed, relation: '' };
+    }
+    return {
+      parents: trimmed.slice(0, lastSpaceIndex).trim(),
+      relation: trimmed.slice(lastSpaceIndex + 1).trim(),
+    };
+  }
+
+  function renderFamilyEntry(familyLabel, name) {
+    const { parents, relation } = splitFamilyLabel(familyLabel);
+    return `
+      <span class="family-parents">${escapeHtml(parents)}</span>
+      <span class="family-relation">${escapeHtml(relation)}</span>
+      <strong class="family-name">${escapeHtml(name)}</strong>`;
+  }
+
   function renderFooter() {
     const configuredLines = Array.isArray(config.footer?.lines) ? config.footer.lines : [];
     const lines = configuredLines.length
@@ -323,8 +344,8 @@
         <div class="invitation-copy reveal">${invitation.lines.map((line) => `<p>${escapeHtml(line)}</p>`).join('')}</div>
         ${hasFamily ? `
           <div class="family-lines reveal">
-            ${couple.groom_family ? `<span class="family-label">${escapeHtml(couple.groom_family)}</span><strong class="family-name">${escapeHtml(couple.groom)}</strong>` : ''}
-            ${couple.bride_family ? `<span class="family-label">${escapeHtml(couple.bride_family)}</span><strong class="family-name">${escapeHtml(couple.bride)}</strong>` : ''}
+            ${couple.groom_family ? renderFamilyEntry(couple.groom_family, couple.groom) : ''}
+            ${couple.bride_family ? renderFamilyEntry(couple.bride_family, couple.bride) : ''}
           </div>` : ''}
       </section>
 
