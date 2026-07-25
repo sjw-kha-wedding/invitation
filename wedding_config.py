@@ -8,10 +8,10 @@ WEDDING = {
     'site': {
         'title': '서재욱 · 김현아 결혼합니다.',
         'description': '2027년 3월 13일 토요일 오후 2시, 로얄파크컨벤션 3층 로얄홀',
-        # 새 GitHub Pages 주소가 정해지면 YOUR-GITHUB-ID와 저장소 이름을 바꾸세요.
-        'url': 'https://YOUR-GITHUB-ID.github.io/invitation/',
+        # 새 GitHub Pages 배포 주소
+        'url': 'https://sjw-kha-wedding.github.io/invitation/',
         # 공유 서비스의 기존 캐시를 갱신하기 위한 주소입니다.
-        'share_url': 'https://YOUR-GITHUB-ID.github.io/invitation/',
+        'share_url': 'https://sjw-kha-wedding.github.io/invitation/',
         # 커버사진 대신 사용할 별도 공유 미리보기 이미지입니다.
         'share_image': 'static/share-preview.png',
         'asset_version': '1',
