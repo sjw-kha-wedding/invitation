@@ -323,8 +323,8 @@
         <div class="invitation-copy reveal">${invitation.lines.map((line) => `<p>${escapeHtml(line)}</p>`).join('')}</div>
         ${hasFamily ? `
           <div class="family-lines reveal">
-            ${couple.groom_family ? `<p>${escapeHtml(couple.groom_family)} <strong>${escapeHtml(couple.groom)}</strong></p>` : ''}
-            ${couple.bride_family ? `<p>${escapeHtml(couple.bride_family)} <strong>${escapeHtml(couple.bride)}</strong></p>` : ''}
+            ${couple.groom_family ? `<span class="family-label">${escapeHtml(couple.groom_family)}</span><strong class="family-name">${escapeHtml(couple.groom)}</strong>` : ''}
+            ${couple.bride_family ? `<span class="family-label">${escapeHtml(couple.bride_family)}</span><strong class="family-name">${escapeHtml(couple.bride)}</strong>` : ''}
           </div>` : ''}
       </section>
 
@@ -361,7 +361,7 @@
 
         <div class="map-buttons reveal">
           <a class="map-button naver naver-directions" href="${safeUrl(venue.naver_directions_url)}" data-fallback-url="${safeUrl(venue.naver_directions_url)}">네이버 길찾기</a>
-          <a class="map-button kakao" href="${safeUrl(venue.kakao_directions_url)}" target="_blank" rel="noopener">카카오 길찾기</a>
+          <a class="map-button kakao kakao-directions" href="${safeUrl(venue.kakao_directions_url || venue.kakao_place_url)}" data-fallback-url="${safeUrl(venue.kakao_directions_fallback_url || venue.kakao_place_url || venue.kakao_directions_url)}" target="_blank" rel="noopener">카카오 길찾기</a>
         </div>
 
         <button type="button" class="address-copy reveal" data-address="${escapeHtml(venue.address)}">주소 복사</button>
@@ -448,6 +448,27 @@
       const routeUrl = `nmap://route/car?dlat=${venue.latitude}&dlng=${venue.longitude}&dname=${destinationName}&appname=${appName}`;
       const clickedAt = Date.now();
       window.location.href = routeUrl;
+
+      window.setTimeout(() => {
+        if (document.visibilityState === 'visible' && Date.now() - clickedAt < 2200) {
+          window.location.href = fallbackUrl;
+        }
+      }, 1400);
+    });
+
+    document.querySelector('.kakao-directions')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      const button = event.currentTarget;
+      const directUrl = button.getAttribute('href');
+      const fallbackUrl = button.dataset.fallbackUrl || directUrl;
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (!isMobile) {
+        window.open(directUrl, '_blank', 'noopener');
+        return;
+      }
+
+      const clickedAt = Date.now();
+      window.location.href = directUrl;
 
       window.setTimeout(() => {
         if (document.visibilityState === 'visible' && Date.now() - clickedAt < 2200) {
