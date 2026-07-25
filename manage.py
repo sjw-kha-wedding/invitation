@@ -218,13 +218,17 @@ def build_image_data() -> dict[str, Any]:
 
 def derive_links(config: dict[str, Any]) -> None:
     venue = config['venue']
+    name = quote(str(venue['name']))
     kakao_place_id = str(venue.get('kakao_place_id', '')).strip()
     if kakao_place_id:
-        venue['kakao_directions_url'] = f'https://map.kakao.com/link/to/{quote(kakao_place_id)}'
+        venue['kakao_directions_url'] = f'https://place.map.kakao.com/{quote(kakao_place_id)}'
+        venue['kakao_directions_fallback_url'] = venue['kakao_directions_url']
     else:
-        name = quote(str(venue['name']))
         venue['kakao_directions_url'] = (
             f"https://map.kakao.com/link/to/{name},{venue['latitude']},{venue['longitude']}"
+        )
+        venue['kakao_directions_fallback_url'] = (
+            str(venue.get('kakao_place_url', '')).strip() or venue['kakao_directions_url']
         )
 
     # 네이버는 사용자가 제공한 장소 링크를 기본 연결로 사용합니다.
