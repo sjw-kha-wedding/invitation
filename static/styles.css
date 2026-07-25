@@ -957,3 +957,175 @@ h3 {
     padding-left: 8px;
   }
 }
+
+
+/* v23: 전체 톤을 로즈 핑크 계열로 정리, 가족 표기 정렬, 약도/길찾기 버튼 개선 */
+:root {
+  --paper: #fdf4f8;
+  --warm: #faedf3;
+  --white: #fffafc;
+  --text: #4f3d45;
+  --muted: #8a6d79;
+  --line: #eed9e2;
+  --accent: #d79aae;
+  --accent-deep: #ba728e;
+  --sage: #d79aae;
+  --shadow: 0 20px 58px rgba(149, 101, 122, .12);
+}
+
+html,
+body {
+  background: #f7edf2;
+}
+
+.image-placeholder {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.75), rgba(247,231,239,.72)),
+    repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(164,127,145,.05) 18px, rgba(164,127,145,.05) 19px);
+}
+
+.cover-letter {
+  color: #8a6474;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255,255,255,.96), rgba(255,255,255,.15) 34%),
+    linear-gradient(145deg, #f5e6ed, #fff8fb 52%, #f3e1e9);
+}
+
+.draft-notice {
+  color: #8a6675;
+  background: #f8eaf1;
+}
+
+.calendar {
+  background: #fffdfd;
+  border-color: #f1dce4;
+}
+
+.day-grid .sunday {
+  color: #c07a94;
+}
+
+.family-lines {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.family-label {
+  min-width: 13em;
+  text-align: right;
+  color: #6d5a62;
+}
+
+.family-name {
+  display: inline-block;
+  min-width: 4.2em;
+  margin-left: 0;
+  text-align: left;
+  color: #4f3d45;
+}
+
+.map-card {
+  margin-top: 24px;
+  padding: 14px;
+  border-color: rgba(186, 114, 142, .18);
+  background: linear-gradient(135deg, #fff7fa, #f8e6ee);
+  box-shadow: 0 10px 26px rgba(156, 108, 130, .08);
+}
+
+.map-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 10px;
+  background: #fdf1f6;
+  filter: saturate(.95) contrast(1.01);
+}
+
+.map-button.naver,
+.map-button.kakao {
+  color: #fff;
+  background: linear-gradient(135deg, #d79aae, #bf7d98);
+}
+
+.address-copy,
+.outline-button,
+.gallery-toggle {
+  border-color: #e7c6d3;
+  color: #8a6172;
+  background: #fffafc;
+}
+
+.address-copy:hover,
+.outline-button:hover,
+.gallery-toggle:hover {
+  color: #fff;
+  border-color: #cf8aa5;
+  background: #cf8aa5;
+}
+
+.guide-label {
+  color: #5a434d;
+}
+
+.transport-list {
+  border-color: rgba(186, 114, 142, .14);
+  background: rgba(255,255,255,.82);
+}
+
+.transport-item {
+  border-bottom-color: rgba(186, 114, 142, .12);
+}
+
+.transport-heading strong,
+.transport-item strong,
+.venue-summary a,
+.dday strong {
+  color: #b26d88;
+}
+
+.transport-copy,
+.transport-copy p,
+.parking-card p,
+.venue-summary p,
+.section-description,
+.date-summary p,
+.account-row span,
+.account-row small {
+  color: #8a6d79;
+}
+
+.parking-card {
+  background: #fff4f8;
+  border-color: rgba(186, 114, 142, .16);
+}
+
+.parking-icon {
+  color: #a55f7b;
+  background: #f4d8e4;
+}
+
+.parking-card h3 {
+  color: #a55f7b;
+}
+
+.account-group > button,
+.account-row button {
+  background: #fffafc;
+}
+
+footer {
+  background: #b57b93;
+}
+
+@media (max-width: 360px) {
+  .family-label {
+    min-width: 11.5em;
+  }
+}
+
