@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
+  <title id="title">로얄파크컨벤션 임시 약도</title>
+  <desc id="desc">예식장 확정 후 교체할 수 있는 간단한 약도 자리표시자</desc>
+  <rect width="1000" height="640" fill="#f7f3ed"/>
+  <path d="M-40 475 C210 390 340 530 610 430 S900 285 1080 365" fill="none" stroke="#d8cfc3" stroke-width="74"/>
+  <path d="M-40 475 C210 390 340 530 610 430 S900 285 1080 365" fill="none" stroke="#ffffff" stroke-width="49"/>
+  <path d="M210 -40 C300 170 382 260 560 355 S810 515 930 700" fill="none" stroke="#d8cfc3" stroke-width="60"/>
+  <path d="M210 -40 C300 170 382 260 560 355 S810 515 930 700" fill="none" stroke="#ffffff" stroke-width="39"/>
+  <rect x="90" y="82" width="220" height="110" rx="10" fill="#e5e8e1"/>
+  <text x="200" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#71776f">삼각지역</text>
+  <rect x="690" y="90" width="225" height="112" rx="10" fill="#ece5dc"/>
+  <text x="802" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" fill="#80776d">전쟁기념관</text>
+  <circle cx="555" cy="360" r="62" fill="#a88f7b" opacity=".18"/>
+  <path d="M555 270c-48 0-87 38-87 85 0 65 87 154 87 154s87-89 87-154c0-47-39-85-87-85z" fill="#9b7d68"/>
+  <circle cx="555" cy="354" r="31" fill="#fffaf4"/>
+  <text x="555" y="362" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#806451">ROYAL</text>
+  <rect x="393" y="525" width="324" height="67" rx="34" fill="#ffffff" stroke="#ddd3c7"/>
+  <text x="555" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#4a443f">로얄파크컨벤션</text>
+  <text x="500" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#9b9187">서울 용산구 이태원로 29</text>
+</svg>
