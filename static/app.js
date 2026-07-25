@@ -382,7 +382,7 @@
 
         <div class="map-buttons reveal">
           <a class="map-button naver naver-directions" href="${safeUrl(venue.naver_directions_url)}" data-fallback-url="${safeUrl(venue.naver_directions_url)}">네이버 길찾기</a>
-          <a class="map-button kakao kakao-directions" href="${safeUrl(venue.kakao_directions_url || venue.kakao_place_url)}" data-fallback-url="${safeUrl(venue.kakao_directions_fallback_url || venue.kakao_place_url || venue.kakao_directions_url)}" target="_blank" rel="noopener">카카오 길찾기</a>
+          <a class="map-button kakao" href="${safeUrl(venue.kakao_directions_url)}" target="_blank" rel="noopener">카카오 길찾기</a>
         </div>
 
         <button type="button" class="address-copy reveal" data-address="${escapeHtml(venue.address)}">주소 복사</button>
@@ -477,26 +477,6 @@
       }, 1400);
     });
 
-    document.querySelector('.kakao-directions')?.addEventListener('click', (event) => {
-      event.preventDefault();
-      const button = event.currentTarget;
-      const directUrl = button.getAttribute('href');
-      const fallbackUrl = button.dataset.fallbackUrl || directUrl;
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (!isMobile) {
-        window.open(directUrl, '_blank', 'noopener');
-        return;
-      }
-
-      const clickedAt = Date.now();
-      window.location.href = directUrl;
-
-      window.setTimeout(() => {
-        if (document.visibilityState === 'visible' && Date.now() - clickedAt < 2200) {
-          window.location.href = fallbackUrl;
-        }
-      }, 1400);
-    });
 
     document.querySelector('.address-copy')?.addEventListener('click', (event) => {
       copyText(event.currentTarget.dataset.address, '주소를 복사했습니다.');
