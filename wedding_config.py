@@ -14,7 +14,7 @@ WEDDING = {
         'share_url': 'https://sjw-kha-wedding.github.io/invitation/',
         # 커버사진 대신 사용할 별도 공유 미리보기 이미지입니다.
         'share_image': 'static/share-preview.png',
-        'asset_version': '2',
+        'asset_version': '3',
         'draft_notice': '',
     },
 
